@@ -1,0 +1,50 @@
+# dataset and data loader settings
+datasets:
+  train:
+    name: FFHQ
+    type: FFHQDegradationDataset
+    # dataroot_gt: datasets/ffhq/ffhq_512.lmdb
+    dataroot_gt: D:\chen\send1
+    io_backend:
+      # type: lmdb
+      type: disk
+
+
+    use_hflip: false
+
+    mean: [0.5, 0.5, 0.5]
+    std: [0.5, 0.5, 0.5]
+    out_size: 512
+
+
+    blur_kernel_size: 61
+    kernel_list: ['iso', 'aniso']
+    kernel_prob: [0.5, 0.5]
+    blur_sigma: [0.3, 4]
+#    downsample_range: [0.8, 8]
+
+    downsample_range: [0.4, 6]  #0.4 1最好
+
+    noise_range: [10, 20]
+
+    jpeg_range: [20, 80]
+
+    # color jitter and gray
+    color_jitter_prob: ~
+    color_jitter_shift: 1
+    color_jitter_pt_prob: ~
+    gray_prob: 0.001
+
+    # If you do not want colorization, please set
+    # color_jitter_prob: ~
+    # color_jitter_pt_prob: ~
+    # gray_prob: 0.01
+    # gt_gray: True
+
+    brightness: [ 0.7, 1.2 ]
+    contrast: [ 0.7, 1.2 ]
+    saturation: [ 0.7, 1.2 ]
+    hue: [ -0.1, 0.1 ]
+
+
+
